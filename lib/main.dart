@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       title: "API DPI",
       home: ProductListScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 

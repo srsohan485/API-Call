@@ -1,4 +1,5 @@
 import 'package:apidio/api_service.dart';
+import 'package:apidio/product_detail_screen.dart';
 import 'package:apidio/productmodel.dart';
 import 'package:flutter/material.dart';
 class ProductListScreen extends StatefulWidget {
@@ -45,7 +46,14 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   leading: Image.network(product.thumbnail ?? ""),
                   title: Text(product.title ?? ""),
                   subtitle: Text(product.price.toString()),
-                  onTap: (){},
+                  onTap: (){
+
+                    final productId=product.id;
+                    if(productId == null)return;
+
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context)=>ProductDetailScreen(productId: productId)));
+                  },
                 );
               }
           ),
